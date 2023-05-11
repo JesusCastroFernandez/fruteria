@@ -1,0 +1,58 @@
+import java.util.*;
+
+public class Fruteria {
+    private Map<String, Double> inventario;
+    private List<String> listaCompras;
+
+    public Fruteria() {
+        inventario = new HashMap<>();
+        listaCompras = new ArrayList<>();
+    }
+
+    public void agregarProducto(String producto, double precio) {
+        inventario.put(producto, precio);
+    }
+
+    public void removerProducto(String producto) {
+        inventario.remove(producto);
+    }
+
+    public void mostrarInventario() {
+        System.out.println("Inventario de la frutería:");
+        for (String producto : inventario.keySet()) {
+            System.out.println(producto + " - " + inventario.get(producto) + "€");
+        }
+    }
+
+    public void agregarAListaCompras(String producto) {
+        listaCompras.add(producto);
+    }
+
+    public void mostrarListaCompras() {
+        System.out.println("Lista de compras:");
+        for (String producto : listaCompras) {
+            System.out.println(producto);
+        }
+    }
+
+    public static void main(String[] args) {
+        Fruteria fruteria = new Fruteria();
+
+        // Agregar productos al inventario
+        fruteria.agregarProducto("Manzanas", 1.50);
+        fruteria.agregarProducto("Plátanos", 1.20);
+        fruteria.agregarProducto("Naranjas", 1.75);
+        fruteria.agregarProducto("Pomelos", 2.10);
+        fruteria.agregarProducto("Peras", 1.90);
+
+        // Mostrar inventario
+        fruteria.mostrarInventario();
+
+        // Agregar productos a la lista de compras
+        fruteria.agregarAListaCompras("Manzanas");
+        fruteria.agregarAListaCompras("Naranjas");
+
+        // Mostrar lista de compras
+        fruteria.mostrarListaCompras();
+    }
+}
